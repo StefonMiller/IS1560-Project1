@@ -1,5 +1,4 @@
 import Classes.Path as Path
-import re
 
 # Efficiency and memory cost should be paid with extra attention.
 # Essential private methods or variables can be added.
@@ -33,9 +32,8 @@ class TrectextCollection:
         else:
             # Return None if at end of file
             return None
-
         docNo = doc[doc.find('<DOCNO>')+len('<DOCNO>'):doc.rfind('</DOCNO>')]
-        content = doc[doc.find('<html>')+len('<html>'):doc.rfind('</html>')]
+        content = doc[doc.find('<TEXT>')+len('<TEXT>'):doc.rfind('</TEXT>')]
         return [docNo, content]
         
                 

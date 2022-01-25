@@ -28,27 +28,27 @@ def PreProcess(type):
         doc = collection.nextDocument()
         if doc == None:
             break
-        # docNo = doc[0]
-        # content = doc[1]
+        docNo = doc[0]
+        content = doc[1]
 
-        # # Output the docNo.
-        # wr.write(docNo+"\n")
+        # Output the docNo.
+        wr.write(docNo+"\n")
 
-        # # Output the preprocessed content.
-        # tokenizer = WordTokenizer.WordTokenizer(content)
-        # while True:
-        #     word = tokenizer.nextWord()
-        #     if word == None:
-        #         break
-        #     word = normalizer.lowercase(word)
-        #     if stopwordRemover.isStopword(word) == False:
-        #         wr.write(normalizer.stem(word) + " ")
-        # wr.write("\n")
-        # count += 1
-        # if count % 10000 == 0:
-        #     print("finish " + count + " docs")
+        # Output the preprocessed content.
+        tokenizer = WordTokenizer.WordTokenizer(content)
+        while True:
+            word = tokenizer.nextWord()
+            if word == None:
+                break
+            word = normalizer.lowercase(word)
+            if stopwordRemover.isStopword(word) == False:
+                wr.write(normalizer.stem(word) + " ")
+        wr.write("\n")
+        count += 1
+        if count % 10000 == 0:
+            print("finish " + str(count) + " docs")
     wr.close()
-    print("Total : " + count + " docs")
+    print("Total : " + str(count) + " docs")
     return
 
 

@@ -35,7 +35,4 @@ class TrecwebCollection:
 
         docNo = doc[doc.find('<DOCNO>')+len('<DOCNO>'):doc.rfind('</DOCNO>')]
         content = doc[doc.find('</DOCHDR>')+len('</DOCHDR>'):doc.rfind('</DOC>')]
-        print(docNo)
-        print(content)
-        exit(0)
         return [docNo, content]
